@@ -1,0 +1,58 @@
+{
+  "name": "dsh-bubble-skins",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness 用户消息气泡样式库：为 Web 界面提供多套可切换的用户气泡皮肤 | Multi-style user message bubble skins for the DSH Web GUI",
+  "type": "module",
+  "license": "MIT",
+  "author": "copyninja123",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/copyninja123/dsh-bubble-skins.git"
+  },
+  "homepage": "https://github.com/copyninja123/dsh-bubble-skins#readme",
+  "bugs": {
+    "url": "https://github.com/copyninja123/dsh-bubble-skins/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "bubble",
+    "skin",
+    "theme",
+    "user-message",
+    "chat"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "icon": "./icon.svg",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.0"
+  },
+  "scripts": {
+    "check": "node --check client.js && node --check index.js"
+  }
+}

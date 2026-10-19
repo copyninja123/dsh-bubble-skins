@@ -1,0 +1,5 @@
+# 气泡样式库：向 web profile 的 Loader 插入一行插件条目。
+# 安装后由 dsh plugin 自动并入 bundle 栈，下次 dsh web 启动即装配。
+- insert:
+    - id: bubble-skins
+      name: dsh-bubble-skins
