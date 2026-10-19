@@ -1,4 +1,6 @@
 {
-  "title": "Bubble Skins",
-  "description": "Multi-style, switchable user message bubble skins for the DeepSeek Harness Web GUI."
+  "meta": {
+    "title": "Bubble Skins",
+    "description": "Multi-style, switchable user message bubble skins for the DeepSeek Harness Web GUI, with persistence and clean restore."
+  }
 }

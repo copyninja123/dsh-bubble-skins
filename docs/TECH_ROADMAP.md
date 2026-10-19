@@ -25,18 +25,18 @@
 | --- | --- |
 | 范围 | 5 套内置皮肤、运行时、持久化、还原 |
 | 交付物 | `client.js` 运行时；`package.json` / `cordis.patch.yml`；README |
-| 验收标准 | ① 能通过 link 安装到 web profile；② 默认皮肤生效；③ 控制台可切换且即时生效；④ 卸载后完全还原；⑤ `node --check` 通过 |
-| 估时 | 1 天（骨架已完成，待补效果验证） |
+| 验收标准 | ① 能通过插件页 / `link:` 安装到目标 profile（本机为 desktop）；② 默认皮肤生效；③ 控制台可切换且即时生效；④ goal / 问答气泡不被误伤；⑤ 卸载后完全还原；⑥ `node --check` 通过 |
+| 当前状态 | 已通过真机验收（2026-10-19）：5 套皮肤、切换、持久化、明暗、尾巴均正常 |
 
 ### M1.1 · 设置面板
 
 | 项 | 内容 |
 | --- | --- |
-| 范围 | 设置页入口、卡片列表、实时预览、恢复默认、配置持久化 |
-| 交付物 | 设置行组件（`ctx.configForms`）、locale 文案、配置 schema |
-| 验收标准 | ① 设置页可见「气泡样式」；② 点击即时切换；③ 重启后保持；④ 恢复默认可用 |
-| 技术依赖 | 0.2 的 `configForms.get(namespace)` + `set(field, value)`；设置行需注册为 volatile 字段 |
-| 估时 | 1–2 天 |
+| 范围 | 设置页入口、皮肤下拉、尾巴开关、实时预览、持久化 |
+| 交付物 | 设置行组件（`settings.general.item`）、运行时 locale 文案、皮肤订阅 |
+| 验收标准 | ① 设置 → 通用可见「气泡样式」「气泡尾巴」两行；② 选择 / 开关即时生效；③ 刷新/重启后保持；④ 恢复默认可用 |
+| 当前状态 | 已通过真机验收（2026-10-19）：两行设置、自定义下拉菜单、正圆开关、尾巴开关均正常 |
+| 后续增强 | 持久化迁移到 Host 配置（`configForms`），实现跨浏览器一致 |
 
 ### M2 · 自定义与开放
 
@@ -82,8 +82,8 @@ M1/M1.1           M2                    M3
 | --- | --- |
 | 前端包 | `@deepseek-ai/dsh-client-ui-chat` |
 | 组件链 | `ChatView` → 行容器（`data-chat-flow-kind`）→ `SlotOutlet` → `UserStyleBubble` → `UserContent` → `div.bubble` |
-| 气泡本体 | 单个 `div`，CSS Modules 类名以 `_bubble` 结尾（全客户端唯一） |
-| 稳定钩子 | `[data-chat-flow-kind="user"]`、`[class*="_bubble"]`、`[data-slot="conversation.chat.node"]` |
+| 气泡本体 | 单个 `div`；类名以 `_bubble` 结尾，但**并非全客户端唯一**（goal、问答、web-frontend 也有） |
+| 稳定钩子 | `[data-chat-flow-kind="user"]`、`[data-pending-steering]`、`[data-submission-echo]`、`[data-slot="conversation.chat.node"]`；Factory 插槽无 DOM 锚点 |
 
 ### 4.2 插件机制边界
 
@@ -106,14 +106,19 @@ M1/M1.1           M2                    M3
 
 | # | 检查项 | 通过标准 |
 | --- | --- | --- |
-| 1 | 安装 | `dsh plugin --profile web add link:<repo>` 成功 |
+| 1 | 安装 | 应用内插件页安装本地目录成功（或 `dsh plugin` 与目标 profile 匹配） |
 | 2 | 加载 | Web 刷新后无控制台报错 |
 | 3 | 默认皮肤 | 气泡变为浅蓝 + 尾巴 |
 | 4 | 切换 | `window.dshBubbleSkins.set('glass')` 即时生效 |
 | 5 | 持久化 | 刷新后保持所选皮肤 |
 | 6 | 明暗 | 切换 system/light/dark 均正常 |
-| 7 | 还原 | remove 插件后外观完全恢复 |
-| 8 | 语法 | `npm run check` 通过 |
+| 7 | pending / 回声 | pending steering、本地回声气泡样式正确 |
+| 8 | 回归 | goal 气泡、问答气泡不被换肤 |
+| 9 | 纯附件 | 仅附件（无气泡）消息不异常 |
+| 10 | 还原 | remove 插件后外观完全恢复 |
+| 11 | 语法 | `npm run check` 通过 |
+| 12 | 设置面板 | 设置 → 通用出现「气泡样式」「气泡尾巴」两行，操作后即时生效 |
+| 13 | 尾巴开关 | 关闭后 5 套皮肤均无尾巴，开启后均显示，刷新后保持 |
 
 ### 5.2 回归矩阵
 

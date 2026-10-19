@@ -1,4 +1,6 @@
 {
-  "title": "气泡样式库",
-  "description": "为 DeepSeek Harness Web 界面提供多套可切换的用户消息气泡样式，支持独立切换、沉淀与后续的皮肤包扩展。"
+  "meta": {
+    "title": "气泡样式库",
+    "description": "为 DeepSeek Harness Web 界面提供多套可切换的用户消息气泡样式，支持独立切换、持久化与完整还原。"
+  }
 }

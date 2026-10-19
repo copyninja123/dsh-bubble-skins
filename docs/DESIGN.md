@@ -76,7 +76,7 @@ DeepSeek Harness（`dsh`）的 Web 界面默认只有一套用户消息气泡：
 
 ## 6. 功能设计
 
-### 6.1 M1（当前骨架）
+### 6.1 M1（已完成，真机初验）
 
 - 5 套内置皮肤；
 - 默认皮肤 `qq-blue` 自动启用；
@@ -86,10 +86,11 @@ DeepSeek Harness（`dsh`）的 Web 界面默认只有一套用户消息气泡：
 
 ### 6.2 M1.1（设置面板）
 
-- 入口：`设置 → 外观 → 气泡样式`；
-- 卡片列表 + 实时预览（选中即应用）；
-- 「跟随主题 / 恢复默认」开关；
-- 持久化改走 DSH 配置（`configForms`），localStorage 仅作兜底。
+- 入口：`设置 → 通用`；
+- 「气泡样式」：下拉选择 5 套皮肤，选中即应用；
+- 「气泡尾巴」：独立开关（根属性 `data-dsh-bubble-tail`），对所有皮肤生效；
+- 控件外观对齐 DSH 官方设置（圆角灰底 + chevron / 胶囊开关）；
+- 持久化先走 `localStorage`（皮肤 + 尾巴两个键），后续可迁移 DSH 配置（`configForms`）。
 
 ### 6.3 M2（自定义与开放）
 
@@ -177,23 +178,28 @@ DeepSeek Harness（`dsh`）的 Web 界面默认只有一套用户消息气泡：
 | 钩子 | 稳定性 | 用途 |
 | --- | --- | --- |
 | `[data-chat-flow-kind="user"]` | 高（官方 data 属性） | 定位用户消息行 |
-| `[class*="_bubble"]` | 中（全客户端唯一后缀） | 气泡本体 |
-| `[data-slot="conversation.chat.node"]` | 高（插槽锚点） | 行级容器 |
-| `[data-pending-steering]` / `[data-submission-echo]` | 高 | 区分 pending/echo 状态 |
+| `[class$="_bubble"]` | 中（精确后缀；前缀随构建变化） | 气泡本体（必须用后缀匹配，否则会命中 Tooltip 的 `_bubble_12mhf_1`） |
+| `[data-slot="conversation.chat.node"]` | 高（插槽锚点） | 行级容器（`display: contents`，不适合设宽高） |
+| `[data-pending-steering]` / `[data-submission-echo]` | 高 | pending steering / 本地回声；**它们没有 flow-kind 行容器** |
+
+> 注意：`conversation.chat.user.content`、`conversation.user.text` 是 Factory 插槽，
+> 不产生 DOM 锚点；不要用 `[data-slot="conversation.user.text"]` 选择文字。
 
 ### 9.2 样式注入策略
 
-- 注入位置：`document.head`，单个 `<style>` 元素，整段替换实现热切换；
-- 作用域：`html[data-dsh-bubble-skin="<id>"] [class*="_bubble"]`（特异性高于官方 `.bubble`）；
-- 双色：暗色规则使用 `body[data-ds-dark-theme]` 前缀，随 DSH 主题切换自动生效；
-- 还原：卸载时移除 style 与根属性，零残留。
+- 注入位置：`document.head`，单个带 `data-plugin="dsh-bubble-skins"` 归属标记的 `<style>`，整段替换实现热切换；
+- 作用域：**逐条规则**加 `html[data-dsh-bubble-skin="<id>"]` 前缀，绝不整段拼接；
+- 命中范围：`[data-chat-flow-kind="user"]` / `[data-pending-steering]` / `[data-submission-echo]`
+  三组并集下的 `[class$="_bubble"]`（精确后缀，排除 Tooltip 的 `_bubble_12mhf_1`），避免误伤 goal、问答等组件；
+- 双色：暗色规则使用 `body[data-ds-dark-theme]`（存在性选择器，不能写 `="true"`），随主题切换自动生效；
+- 还原：卸载时移除本插件全部 style 与根属性；复用同 id 节点并清理旧残留。
 
 ### 9.3 颜色接管方式
 
 | 方式 | 说明 | 选用 |
 | --- | --- | --- |
-| 作用域 CSS 变量 | `html[data-…] { --dsw-specific-bubble: … }` | ✅ M1 |
-| `ctx.theme.overrideTokens()` | 官方 token 层 API | M1.1 可选增强 |
+| 作用域 CSS | 直接覆盖气泡元素；自定义属性写在气泡/行元素上（写在 `html[data-…]` 上可能被 `body` 声明覆盖） | ✅ M1 |
+| `ctx.theme.overrideTokens()` | 写入 `body` 内联变量、要求 light/dark 成对，**全局生效无法按组件隔离** | ❌ 不用于皮肤级配色 |
 
 ## 10. 皮肤包开放格式（M2 草案）
 
@@ -250,13 +256,15 @@ interface BubbleSkin {
 
 ### 14.1 气泡相关 token
 
-| token | 作用 |
-| --- | --- |
-| `--dsw-specific-bubble` | 用户气泡底色 |
-| `--dsw-specific-bubble-highlight` | 气泡高亮色 |
-| `--dsw-radius-xl` | 气泡默认圆角 |
-| `--dsh-content-font-size` | 气泡内容字号 |
-| `--dsh-chat-content-width` | 聊天内容宽度（影响气泡最大宽度） |
+| token | 作用 | 亮色 / 暗色 |
+| --- | --- | --- |
+| `--dsw-specific-bubble` | 用户气泡底色（chat / goal / 问答气泡共用） | `#edf3fe` / `#2c2c2e` |
+| `--dsw-specific-bubble-highlight` | inspector 高亮色 | `#d3e2ff` / `#43454a` |
+| `--dsw-radius-xl` | 气泡默认圆角 | `20px`（无暗色变体） |
+| `--dsh-content-font-size` | 气泡内容字号 | 默认 `14px`（10–22 可配） |
+| `--dsh-chat-content-width` | 聊天内容宽度（外层再按 0.702 与 82% 取小） | 布局变量 |
+
+> 前两个 token 被多个组件共用，修改会同时影响它们；皮肤级配色应写在气泡元素自身。
 
 ### 14.2 术语表
 
