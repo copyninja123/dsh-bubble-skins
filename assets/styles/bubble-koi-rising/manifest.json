@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "bubble-koi-rising",
+  "name": {
+    "zh": "锦鲤跃潮",
+    "en": "Rising Golden Koi"
+  },
+  "description": {
+    "zh": "42px矮气泡，顶部金色流光与连续蓝海水，右侧一大一小红金锦鲤跃起。",
+    "en": "A compact 42px bubble with upper gold currents, continuous blue surf and two rising red-gold koi."
+  },
+  "preview": "preview.png",
+  "background": "background.svg",
+  "slice": [
+    40,
+    80,
+    36,
+    28
+  ],
+  "borderWidth": [
+    20,
+    40,
+    18,
+    14
+  ],
+  "borderImageWidth": [
+    20,
+    40,
+    18,
+    14
+  ],
+  "padding": [
+    10,
+    42,
+    10,
+    16
+  ],
+  "textColor": "#240A05",
+  "textShadow": "none",
+  "tailColor": "#FFAE61",
+  "accessories": []
+}

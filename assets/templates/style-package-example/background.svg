@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="84" viewBox="0 0 1050 84" role="img" aria-label="固定气泡示例：DSH 基准深海壳体">
+  <title>固定气泡示例 · DSH 基准 1050×84 @2x（525×42 逻辑）</title>
+  <defs>
+    <linearGradient id="shell" x1="0" y1="0" x2="1050" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102A56" />
+      <stop offset="0.55" stop-color="#174A8C" />
+      <stop offset="1" stop-color="#1E63B8" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.2" cy="0.1" r="0.8">
+      <stop stop-color="#ffffff" stop-opacity="0.16" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- 透明画布；壳体占满 42px 逻辑高度（84 @2x） -->
+  <rect x="4" y="4" width="1042" height="76" rx="20" fill="url(#shell)" />
+  <rect x="4" y="4" width="1042" height="76" rx="20" fill="url(#glow)" />
+  <rect x="4" y="4" width="1042" height="76" rx="20" fill="none" stroke="#9CD4FF" stroke-opacity="0.75" stroke-width="2" />
+  <path d="M16 66 Q 260 50 520 60 T 1034 52" fill="none" stroke="#8FC7FF" stroke-opacity="0.2" stroke-width="2" />
+</svg>

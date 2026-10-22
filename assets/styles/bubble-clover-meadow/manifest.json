@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "id": "bubble-clover-meadow",
+  "name": {
+    "zh": "幸运草坡",
+    "en": "Clover Meadow"
+  },
+  "description": {
+    "zh": "42px矮气泡，顶部叶草、四角三叶草与四叶草、底部连续浅绿薄草坡。",
+    "en": "A compact 42px bubble with upper leaves, fixed corner clovers and continuous pale meadow slopes."
+  },
+  "preview": "preview.png",
+  "background": "background.svg",
+  "slice": [
+    28,
+    44,
+    28,
+    44
+  ],
+  "borderWidth": [
+    14,
+    22,
+    14,
+    22
+  ],
+  "borderImageWidth": [
+    14,
+    22,
+    14,
+    22
+  ],
+  "padding": [
+    10,
+    16,
+    10,
+    16
+  ],
+  "textColor": "#244B30",
+  "textShadow": "none",
+  "tailColor": "#F2F8EA",
+  "accessories": []
+}

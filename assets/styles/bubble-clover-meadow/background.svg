@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="84" viewBox="0 0 1050 84" fill="none">
+  <title>幸运草坡</title>
+  <desc>全新横向矮幅草坡；三叶草、四叶草和顶部叶片全部位于固定角内，中间只有可连续拉伸的浅色草坡。正文由运行时绘制。</desc>
+  <defs>
+    <linearGradient id="meadow-light" x1="0" y1="0" x2="0" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5FAEE"/>
+      <stop offset="0.65" stop-color="#F2F8EA"/>
+      <stop offset="1" stop-color="#EAF3DE"/>
+    </linearGradient>
+    <clipPath id="shell">
+      <rect width="1050" height="84" rx="20"/>
+    </clipPath>
+    <!-- 心形小叶以原点为叶柄端；实例只旋转，不缩放旧款素材。 -->
+    <path id="heart-leaf" d="M0 0C-3-2-9-5-8-9C-7-12-2-12 0-9C2-12 7-12 8-9C9-5 3-2 0 0Z"/>
+  </defs>
+  <g clip-path="url(#shell)">
+    <rect width="1050" height="84" fill="url(#meadow-light)"/>
+    <!-- 中部无清晰叶草；三层薄坡均完整贯穿横向切片线。 -->
+    <path d="M0 69C120 63 238 73 354 69S588 64 706 69S938 64 1050 68V84H0Z" fill="#E0EDC9"/>
+    <path d="M0 76C130 71 240 80 366 75S604 73 734 76S940 72 1050 75V84H0Z" fill="#D2E5B6"/>
+    <path d="M0 81C148 77 254 84 390 80S620 79 760 81S964 78 1050 80V84H0Z" fill="#C6DFA7"/>
+
+    <!-- 左上固定角：全部几何位于 x<44、y<28。 -->
+    <g transform="translate(27 15)">
+      <path d="M0 0Q5 4 7 10" stroke="#B8D498" stroke-width="1.4" stroke-linecap="round"/>
+      <use href="#heart-leaf" fill="#C2DDA6"/>
+      <use href="#heart-leaf" transform="rotate(120)" fill="#CEE3B5"/>
+      <use href="#heart-leaf" transform="rotate(240)" fill="#B8D498"/>
+      <path d="M0-2V-7M2 1L6 4M-2 1L-6 4" stroke="#E5F0D2" stroke-width="0.8" stroke-linecap="round"/>
+    </g>
+
+    <!-- 右上固定角：小叶枝全部位于 x>1006、y<28。 -->
+    <path d="M1010 24Q1021 18 1033 7" stroke="#B8D498" stroke-width="1.3" stroke-linecap="round"/>
+    <path d="M1017 20C1009 20 1006 15 1008 10C1014 10 1018 14 1017 20Z" fill="#CEE3B5"/>
+    <path d="M1024 15C1022 8 1026 4 1032 4C1034 9 1030 14 1024 15Z" fill="#C2DDA6"/>
+    <path d="M1024 16C1030 12 1035 14 1038 18C1034 23 1028 22 1024 16Z" fill="#D7E9C1"/>
+
+    <!-- 左下固定角：三叶草与草尖全部位于 x<44、y>56。 -->
+    <g transform="translate(27 69)">
+      <path d="M0 0Q5 5 4 12" stroke="#B8D498" stroke-width="1.5" stroke-linecap="round"/>
+      <use href="#heart-leaf" fill="#B8D498"/>
+      <use href="#heart-leaf" transform="rotate(120)" fill="#C2DDA6"/>
+      <use href="#heart-leaf" transform="rotate(240)" fill="#CEE3B5"/>
+      <path d="M0-2V-7M2 1L6 4M-2 1L-6 4" stroke="#E5F0D2" stroke-width="0.8" stroke-linecap="round"/>
+    </g>
+    <path d="M9 83L8 76L12 81L15 74L15 84ZM42 84L40 77L45 81L48 76L47 84Z" fill="#B8D498"/>
+
+    <!-- 右下固定角：四片心形叶全部位于 x>1006、y>56。 -->
+    <g transform="translate(1023 68)">
+      <path d="M0 0Q-5 7-4 14" stroke="#B8D498" stroke-width="1.5" stroke-linecap="round"/>
+      <use href="#heart-leaf" fill="#B8D498"/>
+      <use href="#heart-leaf" transform="rotate(90)" fill="#CEE3B5"/>
+      <use href="#heart-leaf" transform="rotate(180)" fill="#C2DDA6"/>
+      <use href="#heart-leaf" transform="rotate(270)" fill="#D7E9C1"/>
+      <path d="M0-2V-7M2 0H7M0 2V7M-2 0H-7" stroke="#E5F0D2" stroke-width="0.8" stroke-linecap="round"/>
+    </g>
+    <path d="M1002 84L1001 77L1005 81L1008 75L1008 84ZM1037 84L1035 76L1040 81L1042 77L1042 84Z" fill="#B8D498"/>
+  </g>
+</svg>

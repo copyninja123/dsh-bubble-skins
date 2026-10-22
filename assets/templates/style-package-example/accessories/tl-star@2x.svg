@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="固定气泡示例挂件：星标（显示 24×24）">
+  <title>固定气泡示例挂件 · 星标（48×48 @2x，显示 24×24）</title>
+  <defs>
+    <linearGradient id="star" x1="8" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE7A8" />
+      <stop offset="1" stop-color="#F2B85C" />
+    </linearGradient>
+  </defs>
+  <path
+    d="M24 4 L29.6 17.2 L44 18.4 L33.2 27.8 L36.5 42 L24 34.6 L11.5 42 L14.8 27.8 L4 18.4 L18.4 17.2 Z"
+    fill="url(#star)"
+    stroke="#C98D3D"
+    stroke-width="1.2"
+    stroke-linejoin="round"
+  />
+  <circle cx="19" cy="16" r="1.6" fill="#ffffff" opacity="0.75" />
+</svg>

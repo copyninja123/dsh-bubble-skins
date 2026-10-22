@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="84" viewBox="0 0 1050 84" role="img" aria-label="固定气泡示例整体效果图">
+  <title>固定气泡示例 · 整体效果图（preview，DSH 基准）</title>
+  <defs>
+    <linearGradient id="shell" x1="0" y1="0" x2="1050" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102A56" />
+      <stop offset="0.55" stop-color="#174A8C" />
+      <stop offset="1" stop-color="#1E63B8" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.2" cy="0.1" r="0.8">
+      <stop stop-color="#ffffff" stop-opacity="0.16" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="star" x1="8" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE7A8" />
+      <stop offset="1" stop-color="#F2B85C" />
+    </linearGradient>
+  </defs>
+
+  <rect x="4" y="4" width="1042" height="76" rx="20" fill="url(#shell)" />
+  <rect x="4" y="4" width="1042" height="76" rx="20" fill="url(#glow)" />
+  <rect x="4" y="4" width="1042" height="76" rx="20" fill="none" stroke="#9CD4FF" stroke-opacity="0.75" stroke-width="2" />
+  <path d="M16 66 Q 260 50 520 60 T 1034 52" fill="none" stroke="#8FC7FF" stroke-opacity="0.2" stroke-width="2" />
+
+  <!-- 组装后的挂件（示意位置） -->
+  <g transform="translate(0 0)">
+    <path
+      d="M24 4 L29.6 17.2 L44 18.4 L33.2 27.8 L36.5 42 L24 34.6 L11.5 42 L14.8 27.8 L4 18.4 L18.4 17.2 Z"
+      fill="url(#star)"
+      stroke="#C98D3D"
+      stroke-width="1.2"
+      stroke-linejoin="round"
+    />
+  </g>
+
+  <!-- 文字仅为预览示意，运行时由 DSH 渲染；上下 padding 10/10 -->
+  <text x="64" y="38" font-family="system-ui, 'Microsoft YaHei', sans-serif" font-size="16" fill="#ffffff">示例文字：DSH 基准固定气泡</text>
+  <text x="64" y="58" font-family="system-ui, 'Microsoft YaHei', sans-serif" font-size="10" fill="#CFE3FF">上下留白 10px · 文字由 DSH 渲染</text>
+</svg>

@@ -1,6 +1,6 @@
 {
   "name": "dsh-bubble-skins",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "DeepSeek Harness 用户消息气泡样式库：为 Web 界面提供多套可切换的用户气泡皮肤 | Multi-style user message bubble skins for the DSH Web GUI",
   "type": "module",
   "license": "MIT",
@@ -36,7 +36,12 @@
     "cordis.patch.yml",
     "locale",
     "icon.svg",
-    "docs/screenshots",
+    "assets/styles/README.md",
+    "assets/styles/bubble-clover-meadow",
+    "assets/styles/bubble-koi-rising",
+    "assets/templates/style-package-example",
+    "assets/screenshots",
+    "docs/BUBBLE_SPEC.md",
     "README.md",
     "LICENSE"
   ],
