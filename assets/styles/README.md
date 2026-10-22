@@ -27,6 +27,8 @@ assets/styles/
 
 - ✅ `bubble-clover-meadow/`：固定样式「幸运草坡」，已按 v3.2 重做并替换运行时素材（1050×84 / 42px）；默认仍是 DSH 默认；
 - ✅ `bubble-koi-rising/`：固定样式「锦鲤跃潮」，已按 v3.2 重做并替换运行时素材（1050×84 / 42px）；背景压缩为 WebP 内联；
+- ✅ `bubble-ds-whale-girl/`：固定样式「DS鲸鱼娘·白瓷蓝」，带尾壳体向下 12px、右下外挂角色；已接入并随 v0.2.1 发布；
 - 后续固定样式继续放在本目录（如 `bubble-galaxy/`、`bubble-cream/`、`bubble-pixel/`）。
+
 
 

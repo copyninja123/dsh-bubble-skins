@@ -483,6 +483,8 @@ Android 点九图的核心机制：
 | `assets/templates/style-package-example/README.md` | 制作说明与来源记录 |
 | `assets/styles/bubble-clover-meadow/` | **固定样式「幸运草坡」**：manifest + background + preview；已加入下拉（默认仍为 DSH 默认） |
 | `assets/styles/bubble-koi-rising/` | **固定样式「锦鲤跃潮」**：manifest + background + preview；已加入下拉；运行时使用压缩 WebP 内联 |
+| `assets/styles/bubble-ds-whale-girl/` | **固定样式「DS鲸鱼娘·白瓷蓝」**：1050×108 带尾壳体 + 右下 38×40 外挂角色；背景下探 12px、角色位于壳体后方；已随 v0.2.1 发布 |
 | `assets/styles/README.md` | 正式固定样式素材目录说明 |
 
 > 第一批固定样式建议 3 套：星海 / 奶油纸张 / 像素游戏；素材用原创 SVG，避免版权问题。
+

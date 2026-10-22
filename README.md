@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![dsh](https://img.shields.io/badge/dsh-%3E%3D0.2.0-1f6feb)](https://github.com/deepseek-ai/deepseek-harness)
 
-> 状态：**v0.2.0 已发布**；**M2 固定气泡样式：「幸运草坡」「锦鲤跃潮」已按 v3.2 重做为 42px 矮气泡；默认仍为 DSH 原始气泡**；
+> 状态：**v0.2.1 已发布**；固定样式「幸运草坡」「锦鲤跃潮」「DS鲸鱼娘·白瓷蓝」均已接入；草坡/锦鲤为 42px 矮气泡，鲸鱼娘带外挂；默认仍为 DSH 原始气泡；
 > 气泡尾巴 / 气泡背景 / 气泡装饰暂时隐藏，用户自定义接口后置 M3。规范见 [BUBBLE_SPEC.md](./docs/BUBBLE_SPEC.md) v3.2。
 
 ## 特性
@@ -18,7 +18,7 @@
 - 📦 **零构建** —— 纯 JS + CSS，无打包器、无运行时依赖；
 - 🌗 **明暗自适应** —— 每套皮肤同时定义亮色与暗色变体；
 - 🐾 **尾巴可开关（暂时隐藏）** —— 尾巴功能已实现但当前版本不显示设置、不渲染；后续再开放；
-- 🖼️ **固定图片气泡样式（M2）** —— 默认仍为 DSH 原始气泡；「幸运草坡」「锦鲤跃潮」作为可选固定样式加入下拉，随时可切回 DSH 默认，无需停用插件。
+- 🖼️ **固定图片气泡样式（M2）** —— 默认仍为 DSH 原始气泡；「幸运草坡」「锦鲤跃潮」「DS鲸鱼娘·白瓷蓝」作为可选固定样式加入下拉，随时可切回 DSH 默认，无需停用插件。
 
 ## 内置皮肤
 
@@ -27,6 +27,7 @@
 | `dsh-default` | DSH 默认（默认） | DSH 原始气泡外观；不注入气泡样式 |
 | `bubble-clover-meadow` | 幸运草坡 | 浅绿草坡 + 左下三叶草 + 右下四叶草，无描边 |
 | `bubble-koi-rising` | 锦鲤跃潮 | 红橙黄渐变 + 蓝色海浪 + 右下双锦鲤，无描边 |
+| `bubble-ds-whale-girl` | DS鲸鱼娘·白瓷蓝 | 白瓷蓝带尾壳体 + 右下外挂鲸鱼娘角色 |
 | `qq-blue` | QQ 经典蓝 | 浅蓝底 + 右侧气泡小尾巴（尾巴功能暂隐藏） |
 | `qq-deco` | QQ 装饰气泡 | 深色渐变 + 两侧装饰角（尾巴功能暂隐藏） |
 | `glass` | 毛玻璃 | 半透明磨砂 + 细边框 |
@@ -39,13 +40,17 @@
 
 <table>
   <tr>
-    <td align="center" width="50%">
+    <td align="center" width="33%">
       <img src="./assets/styles/bubble-clover-meadow/preview.png" alt="幸运草坡" /><br />
       <sub><b>幸运草坡</b> · bubble-clover-meadow</sub>
     </td>
-    <td align="center" width="50%">
+    <td align="center" width="33%">
       <img src="./assets/styles/bubble-koi-rising/preview.png" alt="锦鲤跃潮" /><br />
       <sub><b>锦鲤跃潮</b> · bubble-koi-rising</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="./assets/styles/bubble-ds-whale-girl/preview.png" alt="DS鲸鱼娘·白瓷蓝" /><br />
+      <sub><b>DS鲸鱼娘·白瓷蓝</b> · bubble-ds-whale-girl</sub>
     </td>
   </tr>
 </table>
@@ -98,7 +103,7 @@ dsh plugin --profile <profile> remove dsh-bubble-skins
 
 > M2 固定气泡样式已接入「幸运草坡」「锦鲤跃潮」；默认仍是 DSH 原始气泡，后续会继续增加固定样式，暂不开放用户上传入口。
 
-### M2 路线：固定气泡样式（幸运草坡、锦鲤跃潮已加入下拉）
+### M2 路线：固定气泡样式（幸运草坡、锦鲤跃潮、DS鲸鱼娘已加入下拉）
 
 之前的「用户自定义图片」分层实验暂缓。原因：用户素材质量、切片参数、内边距、文字避让、存储配额等问题太多，不适合作为第一个可用版本。
 
@@ -111,7 +116,7 @@ dsh plugin --profile <profile> remove dsh-bubble-skins
         ↓
 运行时组装成固定样式，用户直接选用
         ↓
-发布 2 套固定样式，先让用户有的用；后续继续增加
+发布 3 套固定样式，先让用户有的用；后续继续增加
         ↓
 最后再开放用户自定义接口
 ```
@@ -231,7 +236,7 @@ dsh plugin --profile <profile> add link:<本仓库绝对路径>
 | --- | --- |
 | M1 | 纯 CSS 皮肤库：内置皮肤 + 运行时 + 还原（已通过真机验收） |
 | M1.1 | 设置面板：气泡样式下拉 + 气泡尾巴开关（已通过真机验收） |
-| M2 | 固定图片气泡样式：默认 DSH 原始气泡；「幸运草坡」「锦鲤跃潮」已加入下拉；v0.2.0 已发布；DSH 真机回归待补 |
+| M2 | 固定图片气泡样式：默认 DSH 原始气泡；「幸运草坡」「锦鲤跃潮」「DS鲸鱼娘·白瓷蓝」已加入下拉；v0.2.1 已发布；DSH 真机回归待补 |
 | M3 | 用户自定义接口：素材上传、导入导出、开放格式（后置） |
 | M4 | 「自绘行」进阶皮肤（头像/昵称/动态尖角） |
 

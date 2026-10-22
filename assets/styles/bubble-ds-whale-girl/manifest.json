@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "id": "bubble-ds-whale-girl",
+  "name": {
+    "zh": "DS鲸鱼娘·白瓷蓝",
+    "en": "DS Whale Girl · Porcelain Blue"
+  },
+  "description": {
+    "zh": "带尾巴的单一闭合SVG气泡壳体，位于短颈鲸鱼娘上层；正文42px，角色右下外挂。",
+    "en": "A white rounded bubble with a fine blue-violet contour and a fixed blue-haired chibi whale girl at the lower right."
+  },
+  "preview": "preview.png",
+  "background": "background.svg",
+  "slice": [
+    30,
+    80,
+    52,
+    30
+  ],
+  "borderWidth": [
+    15,
+    40,
+    26,
+    15
+  ],
+  "borderImageWidth": [
+    15,
+    40,
+    26,
+    15
+  ],
+  "padding": [
+    10,
+    36,
+    10,
+    16
+  ],
+  "textColor": "#1E2D55",
+  "textShadow": "none",
+  "tailColor": "#FFFFFF",
+  "accessories": [
+    {
+      "image": "accessories/br-whale-girl@2x.png",
+      "anchor": "br",
+      "width": 38,
+      "height": 40,
+      "offsetX": -14,
+      "offsetY": -20,
+      "zIndex": -2
+    }
+  ]
+}

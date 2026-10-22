@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="108" viewBox="0 0 1050 108" fill="none">
+<title>DS鲸鱼娘·白瓷蓝 · 一体带尾壳体</title>
+<desc>唯一闭合可见路径同时绘制圆角气泡与小尾巴，共用填色和描边，无独立尾巴图层。源图正文区域1050×84，尾巴区域向下扩展24单位。</desc>
+<defs><linearGradient id="porcelain" x1="0" y1="0" x2="0" y2="84" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#FAFCFF"/></linearGradient></defs>
+<path d="M40 1.5H1010C1031.263 1.5 1048.5 18.737 1048.5 40V44C1048.5 65.263 1031.263 82.5 1010 82.5H1000C1001 92 1005 99 1012 104C995 105 984 95 980 82.5H40C18.737 82.5 1.5 65.263 1.5 44V40C1.5 18.737 18.737 1.5 40 1.5Z" fill="url(#porcelain)" stroke="#53528C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
